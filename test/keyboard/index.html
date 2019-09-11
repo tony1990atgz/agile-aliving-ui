@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>keyboard</title>
+</head>
+<body>
+
+<div id="app">
+
+  <div>
+    <button @click='keyboardShow'>keyboard123</button>
+    <keyboard ref='keyboard' @getvalue='getvalue' @pay='pay'></keyboard>
+    <h3>keyboard input: {{input}}</h3>
+  </div>  
+  
+</div>
+
+<script src='/static/js/vue.js'></script>
+<script src='/__build__/keyboard.js'></script>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        input: '123'
+      }
+    },
+    methods: {
+      keyboardShow() {
+        this.$refs.keyboard.show()
+      },
+      getvalue(val) {
+        this.input = val
+      },
+      pay(val) {
+        console.log('pay', val)
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+pos-center($bg=transparent)
+  position absolute
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+  background $bg
+posx-center($bg=transparent)
+  position absolute
+  left 50%
+  transform translateX(-50%)
+  background $bg
+posy-center($bg=transparent)
+  position absolute
+  top 50%
+  transform translateY(-50%)
+  background $bg
+pos-fullscreen($bg=transparent)
+  position absolute
+  top 0
+  bottom 0
+  width 100%
+  background $bg
+  z-index 99
+// 不换行
+no-wrap()
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+// 扩展点击区域
+extend-click()
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    top: -10px
+    left: -10px
+    right: -10px
+    bottom: -10px
+border-bottom-1px($color=#ccc)
+  position relative
+  &::after
+    position absolute
+    left 0
+    bottom 0
+    height 1px
+    width 100%
+    background $color
+    content ''
+    transform scaleY(.5)
+border-left-1px($color=#ccc)
+  position relative
+  &::after
+    position absolute
+    left 0
+    top 0
+    bottom 0
+    width 1px
+    height 100%
+    background $color
+    content ''
+    transform scaleX(.5)
