@@ -12,7 +12,7 @@ node server.js
 ```
 
 
-##思维导图
+## 思维导图
 <img src='http://m.qpic.cn/psb?/V13wODfD3QpsWg/mxJfEEsg5hwQIRqTulwyDbpP3Re4jwAn5qDuwvP53YU!/b/dLgAAAAAAAAA&bo=8wc4BAAAAAADB.o!&rf=viewer_4' width="100%" />
 
 ## 现在包含的组件
