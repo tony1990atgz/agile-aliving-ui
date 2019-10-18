@@ -11,25 +11,19 @@
 <div id="app">
 
   <div>
-    <button @click='toastShow'>toast</button>
-    <agile-toast ref='toast'></agile-toast>
+    <agile-button ref='loading'>123</agile-button>
   </div>
 
 </div>
 
 <script src='/static/js/vue.js'></script>
-<script src='/__build__/toast.js'></script>
+<script src='/__build__/button.js'></script>
 <script>
   new Vue({
     el: '#app',
     data() {
       return {
         
-      }
-    },
-    methods: {
-      toastShow() {
-        this.$refs.toast.show()
       }
     }
   })

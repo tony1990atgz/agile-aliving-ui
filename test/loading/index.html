@@ -11,14 +11,14 @@
 <div id="app">
 
   <div>
-    <button @click='toastShow'>toast</button>
-    <agile-toast ref='toast'></agile-toast>
+    <button @click='loadingShow'>loading</button>
+    <agile-loading ref='loading'></agile-loading>
   </div>
 
 </div>
 
 <script src='/static/js/vue.js'></script>
-<script src='/__build__/toast.js'></script>
+<script src='/__build__/loading.js'></script>
 <script>
   new Vue({
     el: '#app',
@@ -28,8 +28,8 @@
       }
     },
     methods: {
-      toastShow() {
-        this.$refs.toast.show()
+      loadingShow() {
+        this.$refs.loading.show()
       }
     }
   })

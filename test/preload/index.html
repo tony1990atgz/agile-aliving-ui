@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+</head>
+<body>
+
+<div id="app">
+
+  <div>
+    <h3>after loading, now you can view the content</h3>
+    <agile-preload :icon='images[0]' :images='images' ref='preload' @callback='callback'></agile-preload>
+  </div>
+
+</div>
+
+<script src='/static/js/vue.js'></script>
+<script src='/__build__/preload.js'></script>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        images: [
+          'http://7xlyvo.com1.z0.glb.clouddn.com/Fjfvr3MUYC5Z7l-QEXO1_ka_6APF?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:uP1kowy_pdB3Y1lEjhOLJVguLGM=',
+          'http://7xlyvo.com1.z0.glb.clouddn.com/Fht9LMlhreo6-JCjw0Gp1oxf8y9Q?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:nsCCedkcpWtZwaXc044Kmthikdk=',
+          'http://7xlyvo.com1.z0.glb.clouddn.com/FhXA9WOteoVqPV-9QWoZB9y6kwu5?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:ufFuXg94QehVjAI8DucwNU-1108=',
+          'http://7xlyvo.com1.z0.glb.clouddn.com/FjjHLwt6at2E7qz90RnvmsCytUPJ?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:YwC7HOHfUBm0bvjXcp0rPutS_0A='
+        ]
+      }
+    },
+    methods: {
+      callback() {
+        setTimeout(() => {
+          this.$refs.preload.hide()
+        }, 200);
+      }
+    }
+  })
+</script>
+</body>
+</html>

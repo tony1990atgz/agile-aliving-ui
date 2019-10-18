@@ -1,6 +1,6 @@
 <template>
   <transition name="confirm">
-    <div class="confirm" :class='posClass'  v-show="status">
+    <div class="agile-confirm-container" :class='posClass'  v-show="status">
         <div class="toast-box"  @click="hide">
           {{content}}
         </div>
@@ -15,7 +15,7 @@
     bottom: 'bottom',
   }
   export default{
-    name: 'toast',
+    name: 'agile-toast',
     props:{
       delay: {
         type: Number,
@@ -65,7 +65,7 @@
 
 <style lang="stylus" scoped>
 @import '~static/stylus/mixin.styl'
-.confirm
+.agile-confirm-container
   position absolute
   left 50%
   transform translateX(-50%)

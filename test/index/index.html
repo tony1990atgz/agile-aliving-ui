@@ -12,19 +12,24 @@
 
   <div>
     <button @click='toastShow'>toast</button>
-    <toast ref='toast'></toast>
+    <agile-toast ref='toast'></agile-toast>
   </div>
 
   <div>
     <button @click='confirmShow'>confirm</button>
-    <confirm ref='confirm'></confirm>
+    <agile-confirm ref='confirm'></agile-confirm>
   </div>
 
   <div>
-    <button @click='keyboardShow'>keyboard123</button>
-    <keyboard ref='keyboard' @getvalue='getvalue' @pay='pay'></keyboard>
+    <button @click='keyboardShow'>keyboard</button>
+    <agile-keyboard ref='keyboard' @getvalue='getvalue' @pay='pay'></agile-keyboard>
     <h3>keyboard input: {{input}}</h3>
-  </div>  
+  </div>
+
+  <div>
+    <agile-button @click='loadingShow'>loading</agile-button>
+    <agile-loading ref='loading'></agile-loading>
+  </div>
 
 </div>
 
@@ -35,7 +40,7 @@
     el: '#app',
     data() {
       return {
-        input: '123'
+        input: ''
       }
     },
     methods: {
@@ -53,7 +58,10 @@
       },
       pay(val) {
         console.log('pay', val)
-      }
+      },
+      loadingShow() {
+        this.$refs.loading.show()
+      },
     }
   })
 </script>

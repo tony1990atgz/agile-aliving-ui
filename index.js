@@ -1,12 +1,18 @@
-import toast from './components/toast'
-import keyboard from './components/keyboard'
-import confirm from './components/confirm'
+import agileToast from './components/toast'
+import agileKeyboard from './components/keyboard'
+import agileConfirm from './components/confirm'
+import agileLoading from './components/loading'
+import agileButton from './components/button'
+import agilePreload from './components/preload'
 
 
 const components = [
-  toast,
-  keyboard,
-  confirm
+  agileToast,
+  agileKeyboard,
+  agileConfirm,
+  agileLoading,
+  agileButton,
+  agilePreload
 ]
 
 const install = function(Vue) {
@@ -19,15 +25,21 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
-  toast,
-  keyboard,
   install,
-  confirm
+  agileToast,
+  agileKeyboard,
+  agileConfirm,
+  agileLoading,
+  agileButton,
+  agilePreload
 }
 
 export default {
-  toast,
-  keyboard,
   install,
-  confirm
+  agileToast,
+  agileKeyboard,
+  agileConfirm,
+  agileLoading,
+  agileButton,
+  agilePreload
 }

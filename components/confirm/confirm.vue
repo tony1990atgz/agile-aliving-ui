@@ -1,6 +1,6 @@
 <template>
   <transition name="confirm">
-    <div class="confirm" :class='isTransparent' v-show="status" @click="modalHide">
+    <div class="agile-confirm-container" :class='isTransparent' v-show="status" @click="modalHide">
       <div class="box" @click.stop>
         <div class="title" v-html='title'></div>
         <div class="operate" v-if="!single">
@@ -18,7 +18,7 @@
 
 <script>
   export default{
-    name: 'confirm',
+    name: 'agile-confirm',
     props:{
       title: {
         type: String,
@@ -47,7 +47,7 @@
     },
     computed: {
       isTransparent() {
-        return this.transparent ?　'confirm-transparent' : ''
+        return this.transparent ? 'confirm-transparent' : ''
       }
     },
     data() {
@@ -79,7 +79,7 @@
 <style lang="stylus" scoped>
 @import '~static/stylus/mixin.styl'
 @import '~static/stylus/variable.styl'
-.confirm
+.agile-confirm-container
   pos-fullscreen()
   background rgba(0,0,0,0.6)
   &.confirm-transparent

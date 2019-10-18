@@ -1,6 +1,6 @@
 <template>
   <transition name='fade'>
-    <div class="keyboard-wrapper" v-show="flag">
+    <div class="agile-keyboard-container" v-show="flag">
       <div class="keyboard-mask" @click="hide"></div>
       <div class="keyboard-btns">
         <div class="keybroard-group">
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: 'keyboard',
+  name: 'agile-keyboard',
   props: {
     max: {
       type: Number,
@@ -84,7 +84,7 @@ export default {
     },
     isEmpty(newVal) {
       const count = newVal || this.value
-      const reg = /[^(0|\.)]/
+      const reg = /[^(0|.)]/
       if (!reg.test(count)) {
         return true
       }
@@ -112,7 +112,7 @@ export default {
 <style scoped lang='stylus'>
 @import '~static/stylus/mixin.styl'
 @import '~static/stylus/variable.styl'
-.keyboard-wrapper
+.agile-keyboard-container
   user-select none
   transition all .3s
   pos-fullscreen()

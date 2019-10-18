@@ -13,7 +13,7 @@ const dirs = fs.readdirSync(COMPONENTS_DIR).reduce((entries, dir) => {
   const fullDir = path.join(COMPONENTS_DIR, dir)
   const entry = path.join(fullDir, 'index.js')
   if (fs.statSync(fullDir).isDirectory() && fs.existsSync(entry)) {
-    entries[dir] = entry
+    entries['/lib/' + dir] = entry
   }
   return entries
 }, {})
@@ -25,7 +25,7 @@ module.exports = {
   },
   output: {
     path: resolve('dist'),
-    filename: 'lib/[name].js',
+    filename: '[name].js',
     library: 'agile',
     libraryTarget: 'umd'
   },
