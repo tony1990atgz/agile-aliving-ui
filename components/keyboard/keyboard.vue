@@ -1,5 +1,5 @@
 <template>
-  <transition name='fade'>
+  <transition name='slide'>
     <div class="agile-keyboard-container" v-show="flag">
       <div class="keyboard-mask" @click="hide"></div>
       <div class="keyboard-btns">
@@ -113,15 +113,15 @@ export default {
 @import '~static/stylus/mixin.styl'
 @import '~static/stylus/variable.styl'
 .agile-keyboard-container
+  fullscreen()
   user-select none
   transition all .3s
-  pos-fullscreen()
-  posx-center()
   max-width: $maxwidth
-  &.fade-enter-active, &.fade-leave-active
+  z-index 999
+  &.slide-enter-active, &.slide-leave-active
     .keyboard-btns
-      transition all .3s
-  &.fade-enter, &.fade-leave-to
+      transition all .2s
+  &.slide-enter, &.slide-leave-to
     .keyboard-btns
       transform translate3d(0, 100%,0)
   .keyboard-mask
@@ -155,17 +155,14 @@ export default {
       text-align: center
       line-height: 45px
     .keyboard-pay
+      font-size $base-font-size
       flex 1
-      display flex
+      flex-center()
       background: #f3f3f3
       border-radius: 4px
-      justify-content center
-      align-items center
       background: #41b9b2
       color: #b3b3b3
-      font-weight bold
-      font-size: 14px
       margin-bottom 0
       &.active
-        color white
+        color $white
 </style>

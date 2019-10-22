@@ -41,13 +41,18 @@ export default {
   mounted() {
     this.len = this.images.length
     this.load().then(res => {
-      this.$emit('callback')
+      this.callback()
     }).catch(err => {
-      this.$emit('callback')
-      console.log(err)
+      this.callback()
     })
   },
   methods: {
+    callback() {
+      setTimeout(() => {
+        this.hide()
+        this.$emit('callback')
+      }, 200)
+    },
     hide() {
       this.flag = false
     },
@@ -77,24 +82,17 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~static/stylus/mixin.styl'
+@import '~static/stylus/variable.styl'
 .agile-preload-container
-  position fixed
-  top 0
-  bottom 0
-  left 0
-  overflow hidden
-  width 100%
-  display flex
-  align-items center
-  justify-content center
-  z-index 999
+  fullscreen($white)
+  flex-center()
   flex-direction column
-  background #fff
   .agile-preload-bg
     width 120px
     height 120px
     background-size 100% 100%
   .agile-preload-progress
     margin-top 10px
-    font-size 14px
+    font-size $base-font-size
 </style>

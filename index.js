@@ -1,18 +1,22 @@
 import agileToast from './components/toast'
 import agileKeyboard from './components/keyboard'
+import agileCarboard from './components/carboard'
 import agileConfirm from './components/confirm'
 import agileLoading from './components/loading'
 import agileButton from './components/button'
 import agilePreload from './components/preload'
+import agileToptip from './components/toptip'
 
 
 const components = [
   agileToast,
   agileKeyboard,
+  agileCarboard,
   agileConfirm,
   agileLoading,
   agileButton,
-  agilePreload
+  agilePreload,
+  agileToptip
 ]
 
 const install = function(Vue) {
@@ -28,18 +32,22 @@ export {
   install,
   agileToast,
   agileKeyboard,
+  agileCarboard,
   agileConfirm,
   agileLoading,
   agileButton,
-  agilePreload
+  agilePreload,
+  agileToptip
 }
 
 export default {
   install,
   agileToast,
   agileKeyboard,
+  agileCarboard,
   agileConfirm,
   agileLoading,
   agileButton,
-  agilePreload
+  agilePreload,
+  agileToptip
 }

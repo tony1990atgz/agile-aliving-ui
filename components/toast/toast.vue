@@ -1,6 +1,6 @@
 <template>
-  <transition name="confirm">
-    <div class="agile-confirm-container" :class='posClass'  v-show="status">
+  <transition name="toast">
+    <div class="agile-toast-container" :class='posClass'  v-show="status">
         <div class="toast-box"  @click="hide">
           {{content}}
         </div>
@@ -65,10 +65,9 @@
 
 <style lang="stylus" scoped>
 @import '~static/stylus/mixin.styl'
-.agile-confirm-container
-  position absolute
-  left 50%
-  transform translateX(-50%)
+@import '~static/stylus/variable.styl'
+.agile-toast-container
+  posx-center()
   &.bottom
     bottom 5%
   &.center
@@ -76,21 +75,21 @@
     transform translate(-50%, -50%)
   &.top
     top 5%
-  &.confirm-enter-active,&.confirm-leave-active
+  &.toast-enter-active,&.toast-leave-active
     transition all 0.3s cubic-bezier(0.86, 0.18, 0.82, 1.32)
     .toast-box
       transition all 0.3s cubic-bezier(0.86, 0.18, 0.82, 1.32)
-  &.confirm-enter,&.confirm-leave-to
+  &.toast-enter,&.toast-leave-to
     opacity 0
     .toast-box
       transform scale(1.1)
   .toast-box
     max-width 80%
     transform-origin center
-    background rgba(0,0,0,0.6)
+    background $base-mask-bg
     color #fff
     line-height 24px
-    font-size 14px
+    font-size $base-font-size
     padding 5px 15px
     word-break break-all
 </style>

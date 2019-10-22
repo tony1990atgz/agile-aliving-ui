@@ -14,14 +14,38 @@ posy-center($bg=transparent)
   top 50%
   transform translateY(-50%)
   background $bg
-pos-fullscreen($bg=transparent)
-  position absolute
-  left 0
+fullscreen($bg=transparent)
+  position fixed
   top 0
   bottom 0
+  left 0
   width 100%
   background $bg
-  z-index 99
+  overflow hidden
+  z-index 999
+autobottomscreen($bg=transparent)
+  position fixed
+  bottom 0
+  left 0
+  width 100%
+  background $bg
+  overflow hidden
+  z-index 999
+autotopscreen($bg=transparent)
+  position fixed
+  top 0
+  left 0
+  width 100%
+  background $bg
+  overflow hidden
+  z-index 999
+flex-center()
+  display flex
+  align-items center
+  justify-content center
+lh($height=40px)
+  height $height
+  line-height $height
 // 不换行
 no-wrap()
   text-overflow: ellipsis

@@ -80,15 +80,14 @@
 @import '~static/stylus/mixin.styl'
 @import '~static/stylus/variable.styl'
 .agile-confirm-container
-  pos-fullscreen()
-  background rgba(0,0,0,0.6)
+  fullscreen($base-mask-bg)
   &.confirm-transparent
     background transparent
     .box
       border 1px solid #eee
       box-shadow 1px 1px 0px #000
   &.confirm-enter-active,&.confirm-leave-active
-    transition all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+    transition all 0.2s cubic-bezier(0.86, 0.18, 0.82, 1.32)
   &.confirm-enter,&.confirm-leave-to
     opacity 0
     transform scale(1.1)
@@ -99,7 +98,7 @@
     width 60%
     text-align center
     .title
-      font-size 14px
+      font-size $base-font-size
       padding 20px 10px
       line-height 24px
       border-bottom-1px()

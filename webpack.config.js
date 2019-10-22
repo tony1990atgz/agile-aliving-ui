@@ -44,6 +44,10 @@ module.exports = {
       {
         test: /\.styl(us)?$/,
         loader: 'style-loader!css-loader!stylus-loader'
+      },
+      {
+        test: /\.(png|jpg|jpeg|svg)$/,
+        loader: 'url-loader?limit=1000000'
       }
     ]
   },

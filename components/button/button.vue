@@ -52,37 +52,37 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~static/stylus/variable.styl'
 .agile-button-container
   width 100%
-  border 1px solid #dcdfe6
+  border 1px solid $default
   display block
-  height 40px
   outline none
-  line-height 40px
-  background blue
-  color white
-  font-size 14px
+  height $base-btn-h
+  line-height $base-btn-h
+  color $white
+  font-size $base-font-size
   transition opacity .1s
   &.active
     opacity .8
   &.radius
     border-radius 4px
   &.radius50
-    border-radius 20px
+    border-radius $base-btn-h
   &.agile
-    background-color #14c8b7
-    border-color #14c8b7
+    background-color $agile
+    border-color $agile
   &.primary
-    background-color #409eff
-    border-color #409eff
+    background-color $primary
+    border-color $primary
   &.success
-    background-color #67c23a
-    border-color #67c23a
+    background-color $success
+    border-color $success
   &.warning
-    background-color #f56c6c
-    border-color #f56c6c
+    background-color $warning
+    border-color $warning
   &.default
-    background-color #fff
-    border-color #dcdfe6
-    color #000
+    background-color $white
+    border-color $default
+    color $black
 </style>

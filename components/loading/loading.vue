@@ -49,19 +49,13 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~static/stylus/mixin.styl'
+@import '~static/stylus/variable.styl'
 .agile-loading-container
-  position fixed
-  top 0
-  bottom 0
-  width 100%
-  background rgba(0,0,0,.6)
-  display flex
-  align-items center
-  justify-content center 
-  z-index 999
+  fullscreen($base-mask-bg)
+  flex-center()
   &.fade-enter-active,&.fade-leave-active
     transition opacity .2s
   &.fade-enter,&.fade-leave-to
     opacity 0
-
 </style>
