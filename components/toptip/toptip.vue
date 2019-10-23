@@ -26,7 +26,8 @@ export default {
   },
   data() {
     return {
-      flag: false
+      flag: false,
+      timer: null
     }
   },
   methods: {
@@ -52,6 +53,7 @@ export default {
   text-align center
   color $white
   font-size $base-font-size
+  no-wrap()
   &.slide-enter-active, &.slide-leave-active
       transition all .2s
   &.slide-enter, &.slide-leave-to

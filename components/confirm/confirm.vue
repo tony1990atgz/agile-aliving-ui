@@ -70,6 +70,7 @@
         this.$emit('confirm')
       },
       doCancel(){
+        this.hide()
         this.$emit('cancel')
       }
     }
