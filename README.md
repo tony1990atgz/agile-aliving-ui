@@ -13,7 +13,7 @@ node server.js
 
 
 ## 思维导图
-<img src='http://m.qpic.cn/psb?/V13wODfD3QpsWg/mxJfEEsg5hwQIRqTulwyDbpP3Re4jwAn5qDuwvP53YU!/b/dLgAAAAAAAAA&bo=8wc4BAAAAAADB.o!&rf=viewer_4' width="100%" />
+<img src='http://m.qpic.cn/psb?/V13wODfD3QpsWg/qxvL3rS7w.12IhAhbcHQkMCyx4mcWyeWp8bsSswAyBc!/b/dLYAAAAAAAAA&bo=LAY4BAAAAAADBzQ!&rf=viewer_4' width="100%" />
 
 ## 现在包含的组件
 
@@ -28,3 +28,9 @@ node server.js
 - **loading**
 
 - **button**
+
+- **carboard**
+
+- **toptip**
+
+- **switch**
