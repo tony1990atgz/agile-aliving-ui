@@ -115,9 +115,7 @@ export default {
 .agile-keyboard-container
   fullscreen()
   user-select none
-  transition all .3s
-  max-width: $maxwidth
-  z-index 999
+  transition all .2s
   &.slide-enter-active, &.slide-leave-active
     .keyboard-btns
       transition all .2s
@@ -127,17 +125,11 @@ export default {
   .keyboard-mask
     width: 100%
     height 100%
-    max-width: $maxwidth
   .keyboard-btns
-    z-index: 1000
-    max-width: $maxwidth
-    position: fixed
-    bottom: 0
-    width: 100%
+    autobottomscreen(#e4e4e4)
     height: 220px
     padding: 8px
     box-sizing: border-box
-    background: #e4e4e4
     display: flex
     font-size: 24px
     .keybroard-group
