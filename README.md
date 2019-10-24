@@ -13,7 +13,7 @@ node server.js
 
 
 ## 思维导图
-<img src='http://m.qpic.cn/psb?/V13wODfD3QpsWg/qxvL3rS7w.12IhAhbcHQkMCyx4mcWyeWp8bsSswAyBc!/b/dLYAAAAAAAAA&bo=LAY4BAAAAAADBzQ!&rf=viewer_4' width="100%" />
+<img src='http://m.qpic.cn/psb?/V13wODfD3QpsWg/7HsqLmzaTTSDRDXSchyYYEKOBDylhFZfrzB6.t71zFU!/b/dE0BAAAAAAAA&bo=uAY4BAAAAAADN5A!&rf=viewer_4' width="100%" />
 
 ## 现在包含的组件
 
