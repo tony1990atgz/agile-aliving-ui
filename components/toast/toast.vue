@@ -67,7 +67,10 @@
 @import '~static/stylus/mixin.styl'
 @import '~static/stylus/variable.styl'
 .agile-toast-container
-  posx-center()
+  position fixed
+  left 50%
+  transform translateX(-50%)
+  z-index 9999
   &.bottom
     bottom 5%
   &.center
@@ -84,12 +87,13 @@
     .toast-box
       transform scale(1.1)
   .toast-box
-    max-width 80%
+    max-width 300px
     transform-origin center
     background $base-mask-bg
     color #fff
     line-height 24px
     font-size $base-font-size
+    border-radius 4px
     padding 5px 15px
     word-break break-all
 </style>

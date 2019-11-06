@@ -10,26 +10,50 @@
 
 <div id="app">
 
-  <div>
-    <button @click='toastShow'>toast</button>
-    <agile-toast ref='toast'></agile-toast>
-  </div>
+  <agile-button type='primary' class='mt10' @click='keyboardShow'>
+    keyboard-count:{{count}}
+  </agile-button>
+  <agile-button type='default' class='mt10' @click='toastShow'>toastShow</agile-button>
+  <agile-button class='mt10' @click='loadingShow' :radius=2>
+    loadingShow
+  </agile-button>
+  <agile-button type='warning' class='mt10' @click='confirmShow' :radius=1>
+    confirmShow
+  </agile-button>
+  <agile-button type='success' class='mt10' @click='toptipShow' :radius=1>
+    toptipShow
+  </agile-button>
+  <agile-button type='success' class='mt10' @click='actionsheetShow' :radius=2>
+    actionsheetShow:{{actionsheetValue}}
+  </agile-button>
+  
+  <agile-keyboard :max=10 :min=5 ref='keyboard' @getvalue='getvalue' @pay='pay'></agile-keyboard>
 
-  <div>
-    <button @click='confirmShow'>confirm</button>
-    <agile-confirm ref='confirm'></agile-confirm>
-  </div>
+  <agile-toast ref='toast'></agile-toast>
 
-  <div>
-    <button @click='keyboardShow'>keyboard</button>
-    <agile-keyboard ref='keyboard' @getvalue='getvalue' @pay='pay'></agile-keyboard>
-    <h3>keyboard input: {{input}}</h3>
-  </div>
+  <agile-confirm ref='confirm' @confirm='confirm'></agile-confirm>
 
-  <div>
-    <agile-button @click='loadingShow'>loading</agile-button>
-    <agile-loading ref='loading'></agile-loading>
-  </div>
+  <agile-loading ref='loading' :simple='false'></agile-loading>
+  
+  <agile-preload ref='preload' @callback='callback' :icon='icon' :images='images'>
+  </agile-preload>
+  
+  <agile-carboard class='mt10' :needtitle='false' ref='carboard' @getcarno='getcarno'></agile-carboard>
+  <agile-toptip :delay=3000 color='red' ref='toptip'></agile-toptip>
+  
+  <agile-switch @toggle='switchToggle'></agile-switch>
+  <agile-switch type='primary' @toggle='switchToggle'></agile-switch>
+  <agile-switch type='success' @toggle='switchToggle'></agile-switch>
+  <agile-switch type='warning' @toggle='switchToggle'></agile-switch>
+  <agile-switch type='default' @toggle='switchToggle'></agile-switch>
+  
+  <agile-actionsheet :simple='false' ref='actionsheet' @selectItem='selectItem' :content='[1,2,3,4,5,6,7,8,9,10]'></agile-actionsheet>
+  
+  
+  <agile-button class='mt10'> 问卷1选中其他需要输入内容 </agile-button>
+  <agile-questionnaire border :min-score='5' :need-other-desc='true' :questions='questions' ref='questionnaire' @validate='validate'></agile-questionnaire>
+  <agile-button type='primary' class='mt10'> 问卷2答案无边框-不需要输入内容 </agile-button>
+  <agile-questionnaire :questions='questions' :min-score='5' ref='questionnaire' @validate='validate'></agile-questionnaire>
 
 </div>
 
@@ -40,30 +64,165 @@
     el: '#app',
     data() {
       return {
-        input: ''
+        blue: 'yellow',
+        loadingflag: false,
+        count: 0,
+        icon: 'http://qiniucdn.4006983383.com/Fslk2rEcZGDsp_ss4cxJmlBMZAyr?imageView2/2/w/200/h/200&e=1886727496&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:_QK9mllAIroY7tsYeNO4axRAX7U=',
+        flag: false,
+        actionsheetValue: -1,
+        images: [
+          'http://7xlyvo.com1.z0.glb.clouddn.com/Fjfvr3MUYC5Z7l-QEXO1_ka_6APF?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:uP1kowy_pdB3Y1lEjhOLJVguLGM=',
+          'http://7xlyvo.com1.z0.glb.clouddn.com/Fht9LMlhreo6-JCjw0Gp1oxf8y9Q?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:nsCCedkcpWtZwaXc044Kmthikdk=',
+          'http://7xlyvo.com1.z0.glb.clouddn.com/FhXA9WOteoVqPV-9QWoZB9y6kwu5?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:ufFuXg94QehVjAI8DucwNU-1108=',
+          'http://7xlyvo.com1.z0.glb.clouddn.com/FjjHLwt6at2E7qz90RnvmsCytUPJ?e=1883458899&token=yGjn97J1eUra-3I6WOkCkc_B9da3ZXhGGsB-6KXo:YwC7HOHfUBm0bvjXcp0rPutS_0A='
+        ],
+        questions: [
+          {
+            id: 11,
+            type: 0,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            answers: [
+              { id: 11, answer: '多次推诿' },
+              { id: 12, answer: '没按约定时间内上门' },
+              { id: 13, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+          {
+            id: 15,
+            type: 0,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            answers: [
+              { id: 111, answer: '多次推诿' },
+              { id: 112, answer: '没按约定时间内上门' },
+              { id: 113, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+          {
+            id: 12,
+            type: 1,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            other: true,
+            answers: [
+              { id: 21, answer: '多次推诿' },
+              { id: 22, answer: '没按约定时间内上门' },
+              { id: 23, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+          {
+            id: 13,
+            type: 2,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            other: false,
+            answers: [
+              { id: 31, answer: '多次推诿' },
+              { id: 32, answer: '没按约定时间内上门' },
+              { id: 33, answer: '没按约定时间内上门 sure' }
+            ],
+          },
+          {
+            id: 14,
+            type: 2,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            other: true,
+            answers: [
+              { id: 31, answer: '多次推诿' },
+              { id: 32, answer: '没按约定时间内上门' },
+              { id: 33, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+        ]
       }
     },
+    mounted() {
+
+    },
     methods: {
-      toastShow() {
-        this.$refs.toast.show()
+      callback() {
+
       },
-      keyboardShow() {
-        this.$refs.keyboard.show()
+      loadingHide() {
+        this.$refs.loading.hide()
+      },
+      switchToggle(val) {
+        console.log(val)
       },
       confirmShow() {
         this.$refs.confirm.show()
       },
-      getvalue(val) {
-        this.input = val
-      },
-      pay(val) {
-        console.log('pay', val)
-      },
       loadingShow() {
         this.$refs.loading.show()
+        setTimeout(() => {
+          this.$refs.loading.hide()
+        }, 2000);
       },
+      carboardShow() {
+        const flag = this.$refs.carboard.flag
+        if (flag) {
+          this.$refs.carboard.hide()
+        } else {
+          this.$refs.carboard.show()
+        }
+      },
+      confirm() {
+        this.$refs.confirm.hide()
+      },
+      keyboardShow() {
+        this.$refs.keyboard.show()
+      },
+      toptipShow() {
+        this.$refs.toptip.show()
+      },
+      toastShow() {
+        console.log(this.$refs)
+        this.$refs.toast.show()
+      },
+      actionsheetShow() {
+        this.$refs.actionsheet.show()
+      },
+      getvalue(value) {
+        this.count = value
+      },
+      pay(amount) {
+        this.$refs.toast.set(amount)
+      },
+      getcarno(carno) {
+        console.log(carno)
+      },
+      selectItem(item) {
+        this.actionsheetValue = item
+        console.log(item)
+      },
+      validate(flag, answers, filter) {
+        if (flag) {
+          console.log(JSON.stringify(answers))
+          console.log(JSON.stringify(filter))
+          this.$refs.toast.set(`答题成功，正在交卷`)
+        } else {
+          console.log(flag, answers)
+          this.$refs.toast.set(`第${answers}题还没作答完成`)
+        }
+      }
     }
   })
 </script>
+
+<style>
+  .mt10 {
+    margin-bottom: 10px;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  #app {
+    font-family: 'Microsoft YaHei', 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+</style>
 </body>
 </html>

@@ -11,15 +11,17 @@
 <div id="app">
 
   <div>
-    <agile-button @click='toastShow'>toast</agile-button>
-    <agile-toast ref='toast'></agile-toast>
+      <agile-switch @toggle='switchToggle'></agile-switch>
+      <agile-switch type='primary' @toggle='switchToggle'></agile-switch>
+      <agile-switch type='success' @toggle='switchToggle'></agile-switch>
+      <agile-switch type='warning' @toggle='switchToggle'></agile-switch>
+      <agile-switch type='default' @toggle='switchToggle'></agile-switch>
   </div>
 
 </div>
 
 <script src='/static/js/vue.js'></script>
-<script src='/__build__/button.js'></script>
-<script src='/__build__/toast.js'></script>
+<script src='/__build__/switch.js'></script>
 <script>
   new Vue({
     el: '#app',
@@ -29,8 +31,8 @@
       }
     },
     methods: {
-      toastShow() {
-        this.$refs.toast.show()
+      switchToggle(val) {
+        console.log(val)
       }
     }
   })

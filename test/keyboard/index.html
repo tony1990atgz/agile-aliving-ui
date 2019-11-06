@@ -11,7 +11,7 @@
 <div id="app">
 
   <div>
-    <button @click='keyboardShow'>keyboard123</button>
+    <agile-button @click='keyboardShow'>keyboard123</agile-button>
     <agile-keyboard ref='keyboard' @getvalue='getvalue' @pay='pay'></agile-keyboard>
     <h3>keyboard input: {{input}}</h3>
   </div>  
@@ -19,6 +19,7 @@
 </div>
 
 <script src='/static/js/vue.js'></script>
+<script src='/__build__/button.js'></script>
 <script src='/__build__/keyboard.js'></script>
 <script>
   new Vue({

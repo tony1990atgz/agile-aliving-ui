@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+</head>
+<body>
+
+<div id="app">
+
+  <agile-button class='mt10'> 问卷1选中其他需要输入内容 </agile-button>
+  <agile-questionnaire border fixed :min-score='5' :need-other-desc='true' :questions='questions' ref='questionnaire'
+    @validate='validate'></agile-questionnaire>
+  <agile-button type='primary' class='mt10'> 问卷2答案无边框-不需要输入内容 </agile-button>
+  <agile-questionnaire :questions='questions' :min-score='5' ref='questionnaire' @validate='validate'>
+  </agile-questionnaire>
+  <div style='height:100px'></div>
+</div>
+
+<script src='/static/js/vue.js'></script>
+<script src='/__build__/button.js'></script>
+<script src='/__build__/questionnaire.js'></script>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        questions: [
+          {
+            id: 11,
+            type: 0,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            answers: [
+              { id: 11, answer: '多次推诿' },
+              { id: 12, answer: '没按约定时间内上门' },
+              { id: 13, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+          {
+            id: 15,
+            type: 0,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            answers: [
+              { id: 111, answer: '多次推诿' },
+              { id: 112, answer: '没按约定时间内上门' },
+              { id: 113, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+          {
+            id: 12,
+            type: 1,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            other: true,
+            answers: [
+              { id: 21, answer: '多次推诿' },
+              { id: 22, answer: '没按约定时间内上门' },
+              { id: 23, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+          {
+            id: 13,
+            type: 2,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            other: false,
+            answers: [
+              { id: 31, answer: '多次推诿' },
+              { id: 32, answer: '没按约定时间内上门' },
+              { id: 33, answer: '没按约定时间内上门 sure' }
+            ],
+          },
+          {
+            id: 14,
+            type: 2,
+            question: '请问您觉得公共区域秩序管理打多少分？（如噪音管理，广场舞管理，晾晒衣服管理等）',
+            other: true,
+            answers: [
+              { id: 31, answer: '多次推诿' },
+              { id: 32, answer: '没按约定时间内上门' },
+              { id: 33, answer: '没按约定时间内上门 sure' }
+            ]
+          },
+        ]
+      }
+    },
+    methods: {
+      toptipShow() {
+        this.$refs.toptip.show()
+      },
+      validate(flag, answers, filter) {
+        if (flag) {
+          console.log(JSON.stringify(answers))
+          console.log(JSON.stringify(filter))
+          this.$refs.toast.set(`答题成功，正在交卷`)
+        } else {
+          console.log(flag, answers)
+          this.$refs.toast.set(`第${answers}题还没作答完成`)
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

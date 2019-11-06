@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name='fade'>
-      <div class="agile-loading-container" v-if='flag && !simple'>
+      <div class="agile-loading-container" @touchmove.prevent v-if='flag && !simple'>
         <loading-icon :class='[sizeCls, {"agile-mask" : !simple}]'></loading-icon>
       </div>
     </transition>
@@ -54,6 +54,7 @@ export default {
 .agile-loading-container
   fullscreen($base-mask-bg)
   flex-center()
+  z-index 9999
   &.fade-enter-active,&.fade-leave-active
     transition opacity .2s
   &.fade-enter,&.fade-leave-to

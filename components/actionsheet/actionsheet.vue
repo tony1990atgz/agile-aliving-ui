@@ -1,19 +1,19 @@
 <template>
   <transition name='slide'>
-    <div class='agile-actionsheet-container' v-show='flag'>
+    <div class='agile-actionsheet-container'  v-show='flag'>
       <div class="actionsheet">
         <div class="title">
           <div class="cancel" @click='hide' v-if="!simple">取消</div>
           <div class='desc'>actionsheet</div>
           <div class="confirm" @click='confirmItem' v-if="!simple">确定</div>
         </div>
-        <div class="body">
+        <div class="body" >
           <ul>
-            <li :class='{active: curIndex === index}' v-for='(item,index) in content' @click.prevent='selectItem(item, index)' :key='index'>{{item.name || item}}</li>
+            <li :class='{active: curIndex === index}' v-for='(item,index) in content' @click='selectItem(item, index)' :key='index'>{{item.name || item}}</li>
           </ul>
         </div>
       </div>
-      <div class="mask" @click='hide'></div>
+      <div class="mask" @click='hide' @touchmove.prevent></div>
     </div>
   </transition>
 </template>

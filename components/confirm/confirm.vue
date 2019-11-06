@@ -1,6 +1,6 @@
 <template>
   <transition name="confirm">
-    <div class="agile-confirm-container" :class='isTransparent' v-show="status" @click="modalHide">
+    <div class="agile-confirm-container" @touchmove.prevent :class='isTransparent' v-show="status" @click="modalHide">
       <div class="box" @click.stop>
         <div class="title" v-html='title'></div>
         <div class="operate" v-if="!single">
