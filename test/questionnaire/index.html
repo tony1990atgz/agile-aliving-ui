@@ -16,11 +16,13 @@
   <agile-button type='primary' class='mt10'> 问卷2答案无边框-不需要输入内容 </agile-button>
   <agile-questionnaire :questions='questions' :min-score='5' ref='questionnaire' @validate='validate'>
   </agile-questionnaire>
+  <agile-toast ref='toast'></agile-toast>
   <div style='height:100px'></div>
 </div>
 
 <script src='/static/js/vue.js'></script>
 <script src='/__build__/button.js'></script>
+<script src='/__build__/toast.js'></script>
 <script src='/__build__/questionnaire.js'></script>
 <script>
   new Vue({

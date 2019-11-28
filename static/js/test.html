@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <input ref='input'/>
+    <div>
+      <agile-button ref='loading'>123</agile-button>
+    </div>
+
+  </div>
+
+  <script src='./vue.js'></script>
+  <script src='./button.js'></script>
+  <script src='./calendar.js'></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          mounted() {
+            // new Calendar(this.$refs.input)
+          }
+        }
+      }
+    })
+    new Calendar(this.$refs.input)
+  </script>
+</body>
+
+</html>

@@ -60,9 +60,6 @@ export default {
       default: false
     }
   },
-  created() {
-    console.log(this.needOtherDesc)
-  },
   data() {
     return {
       multiIndex: {},
