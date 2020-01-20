@@ -9,6 +9,7 @@ import agileToptip from './components/toptip'
 import agileSwitch from './components/switch'
 import agileActionsheet from './components/actionsheet'
 import agileQuestionnaire from './components/questionnaire'
+import agileCounter from './components/counter'
 
 
 const components = [
@@ -22,7 +23,8 @@ const components = [
   agileToptip,
   agileSwitch,
   agileActionsheet,
-  agileQuestionnaire
+  agileQuestionnaire,
+  agileCounter
 ]
 
 const install = function(Vue) {
@@ -46,7 +48,8 @@ export {
   agileToptip,
   agileSwitch,
   agileActionsheet,
-  agileQuestionnaire
+  agileQuestionnaire,
+  agileCounter
 }
 
 export default {
@@ -61,5 +64,6 @@ export default {
   agileToptip,
   agileSwitch,
   agileActionsheet,
-  agileQuestionnaire
+  agileQuestionnaire,
+  agileCounter
 }

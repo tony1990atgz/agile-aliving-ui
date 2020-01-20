@@ -15,6 +15,7 @@
       <div class="title">不满意的原因</div>
       <multi
         ref='multi'
+        :need-other-desc='needOtherDesc'
         :question="reson"
         :other='question.other'
         :border='border'

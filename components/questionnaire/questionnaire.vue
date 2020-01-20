@@ -7,7 +7,6 @@
         :question="question"
         :index='index'
         :border='border'
-        @validate='validate'
         @singleAnswer='singleAnswer'/>
       <multi
         v-if='question.type === 1'
