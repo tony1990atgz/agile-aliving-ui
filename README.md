@@ -27,7 +27,8 @@ import {
   agileToptip,
   agileSwitch,
   agileActionsheet,
-  agileQuestionnaire
+  agileQuestionnaire,
+  agileCounter
 } from 'agile-aliving-ui'
 
 Vue.use(agileLoading)
@@ -41,21 +42,22 @@ Vue.use(agileToptip)
 Vue.use(agileSwitch)
 Vue.use(agileActionsheet)
 Vue.use(agileQuestionnaire)
+Vue.use(agileCounter)
 ```
 
-###script标签引入
+### script标签引入
 ```javascript
 <agile-toast ref='toast'/>
 <script src='agile-aliving-ui/main.js'></script>
 ```
 
-###script标签按需引入
+### script标签按需引入
 ```javascript
 <agile-toast ref='toast'/>
 <script src='agile-aliving-ui/lib/toast.js'></script>
 ```
 
-##组件导图
+## 组件导图
 <img src='http://m.qpic.cn/psb?/V13wODfD3QpsWg/GGi9scBKsp5g.IkA5wUZIGBWxaeGvUgSjCcEnMhljXo!/b/dL4AAAAAAAAA&bo=9QlABlwShgsDSRU!&rf=viewer_4' width="100%" />
 
 ### 问卷调查组件说明
@@ -125,4 +127,9 @@ Vue.use(agileQuestionnaire)
 
 ```javascript
 <agile-questionnaire ref='questionnaire'/>
+```
+### 12、counter. 计数器,属性limit(最大库存)，startNum(初始化的数值)
+
+```javascript
+<agile-counter @getcount='getcount' limit=66 startNum=6 ref='counter'/>
 ```
