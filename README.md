@@ -7,13 +7,13 @@
 ```
 npm install agile-aliving-ui --S
 ```
-###全局引入
+### 全局引入
 ```javascript
 import agileui from 'agile-aliving-ui'
 Vue.use(agileui)
 ```
 
-###按需引入
+### 按需引入
 ```javascript
 import Vue from 'vue'
 import {
